@@ -1,4 +1,4 @@
-package org.mehana.platform.general.controller;
+package org.mehana.general.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +9,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(Model model) {
+        System.out.println("TUK SMEE");
         return "home";
     }
 }

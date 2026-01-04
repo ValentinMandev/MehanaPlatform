@@ -1,6 +1,6 @@
-package org.mehana.platform.common.configuration;
+package org.mehana.common.configuration;
 
-import org.mehana.platform.user.enums.UserRoleEnum;
+import org.mehana.user.enums.UserRoleEnum;
 import org.springframework.boot.security.autoconfigure.web.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +18,8 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(
                         authorizeRequests ->
                                 authorizeRequests
-                                        .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                                        .requestMatchers(PathRequest.toStaticResources().atCommonLocations())
+                                        .permitAll()
 
                                         .requestMatchers("/",
                                                 "/about",
@@ -30,16 +31,14 @@ public class SecurityConfiguration {
                                                 "/error").permitAll()
 
                                         .requestMatchers(
-                                                "/cart",
-                                                "/cart/add",
-                                                "/cart/remove",
+                                                "/cart/**",
                                                 "/checkout",
                                                 "/order-history",
-                                                "/orders/all",
-                                                "/orders/{id}",
+                                                "/orders/**",
                                                 "/user/edit-profile").hasRole(UserRoleEnum.USER.name())
 
                                         .requestMatchers(
+                                                "/admin/**",
                                                 "/edit-product/{id}",
                                                 "/disable-product/{id}",
                                                 "/add-product"
@@ -61,6 +60,7 @@ public class SecurityConfiguration {
                                         .logoutUrl("/user/logout")
                                         .logoutSuccessUrl("/")
                                         .invalidateHttpSession(true)
+                                        .deleteCookies("JSESSIONID")
                 )
                 .build();
     }

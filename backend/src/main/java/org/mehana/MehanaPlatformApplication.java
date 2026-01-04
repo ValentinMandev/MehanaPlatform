@@ -1,4 +1,4 @@
-package org.mehana.platform;
+package org.mehana;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package org.mehana.platform.user.enums;
+package org.mehana.user.enums;
 
 public enum UserRoleEnum {
 
