@@ -9,7 +9,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(Model model) {
-        System.out.println("TUK SMEE");
         return "home";
     }
 }
