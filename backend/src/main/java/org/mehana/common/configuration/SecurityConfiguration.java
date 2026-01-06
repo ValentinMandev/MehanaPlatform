@@ -1,6 +1,6 @@
 package org.mehana.common.configuration;
 
-import org.mehana.user.enums.UserRoleEnum;
+import org.mehana.user.model.enums.UserRoleEnum;
 import org.springframework.boot.security.autoconfigure.web.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
